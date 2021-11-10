@@ -1,0 +1,53 @@
+.banner-img img{
+    width: 100%;
+}
+/* slider style  */
+.slider{
+    font-family: 'Dancing Script', cursive;
+    height: 600px;
+    background-image: url(https://149369349.v2.pressablecdn.com/wp-content/uploads/2013/12/drone1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: white;
+    margin-bottom: 50px;
+}
+.slider img{
+    opacity:92%;  
+}
+/* caption style  */
+.caption{
+    font-family: 'Dancing Script', cursive;
+    padding-top: 100px;
+    padding-left: 100px;
+    justify-content: left;
+    text-align: left;
+    margin-bottom: 200px;
+}
+.caption h1,h4{
+    font-family: 'Dancing Script', cursive;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.caption h4{
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Exo 2', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+/* button style  */
+.button{
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    font-family: 'Exo 2', sans-serif;
+    margin-top: 30px;
+    padding: 10px 36px;
+    background-color: #061A3A;
+    color: white;
+    border: none;
+    border-radius: 40px;
+}
+.button:hover{
+    color: #061A3A;
+    background-color: violet;
+    transition:  0.5s ease;
+}
