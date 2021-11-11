@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './Header.css';
@@ -33,14 +33,21 @@ const Header = () => {
                                 <Link to="/registration" className="items">
                                     <li>Registration</li>
                                 </Link>
+
                                 {
                                     user?.email ?
-                                        <Button onClick={logout}>Logout</Button>
+                                        <Container>
+                                            <Link to="/dashboard" className="items">
+                                                <li>Dashboard</li>
+                                            </Link>
+                                            <Button onClick={logout}>Logout</Button>
+                                        </Container>
                                         :
                                         <Link to="/login" className="items">
                                             <li>Login</li>
                                         </Link>
                                 }
+
 
                                 {/* {user.email ? <small className="user-name">Signed in as <span style={{ color: "violet", fontWeight: "bold" }}>{user.displayName}</span></small> : <p></p>} */}
 

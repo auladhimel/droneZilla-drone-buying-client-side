@@ -16,6 +16,7 @@ import Footer from './Components/Footer/Footer';
 import Purchase from './Components/Purchase/Purchase';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
 import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
+import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
             <Switch>
               <PrivateRoute path="/explore">
                 <Explore />
+              </PrivateRoute>
+              <PrivateRoute path="/dashboard">
+                <Dashboard />
               </PrivateRoute>
               <Route path="/home">
                 <Home />
