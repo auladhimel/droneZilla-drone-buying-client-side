@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Product.css';
 
 const Product = (props) => {
-    const { name, description, price, img } = props.product;
+    const { name, description, price, img, setOrderSucess } = props.product;
 
     return (
         <div className="col-md-3 service justify-content-center">
