@@ -1,8 +1,11 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import './Header.css';
 
 const Header = () => {
+    const { user, logout } = useAuth();
     return (
         <div className="MenuBar-container menubar mt-2 d-flex align-items-center">
             <div className="container">
@@ -27,15 +30,17 @@ const Header = () => {
                                 <Link to="/explore" className="items">
                                     <li>Explore</li>
                                 </Link>
-                                <Link to="/login" className="items">
-                                    <li>Login</li>
-                                </Link>
                                 <Link to="/registration" className="items">
                                     <li>Registration</li>
                                 </Link>
-                                <Link to="/logout" className="items">
-                                    <li>Logout</li>
-                                </Link>
+                                {
+                                    user?.email ?
+                                        <Button onClick={logout}>Logout</Button>
+                                        :
+                                        <Link to="/login" className="items">
+                                            <li>Login</li>
+                                        </Link>
+                                }
 
                                 {/* {user.email ? <small className="user-name">Signed in as <span style={{ color: "violet", fontWeight: "bold" }}>{user.displayName}</span></small> : <p></p>} */}
 

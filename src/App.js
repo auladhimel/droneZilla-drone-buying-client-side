@@ -14,41 +14,45 @@ import Registration from './Components/Registration/Registration';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Purchase from './Components/Purchase/Purchase';
+import AuthProvider from './Context/AuthProvider/AuthProvider';
+import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header></Header>
-        <div>
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <div>
 
 
-          {/* A <Switch> looks through its children <Route>s and
+            {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/explore">
-              <Explore />
-            </Route>
-            <Route path="/home">
-              <Home />
-            </Route>
-            <Route path="/registration">
-              <Registration />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/purchase">
-              <Purchase />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
+            <Switch>
+              <PrivateRoute path="/explore">
+                <Explore />
+              </PrivateRoute>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/registration">
+                <Registration />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <PrivateRoute path="/purchase">
+                <Purchase />
+              </PrivateRoute>
+              <Route path="/">
+                <Home />
+              </Route>
 
-          </Switch>
-        </div>
-        <Footer></Footer>
-      </Router>
+            </Switch>
+          </div>
+          <Footer></Footer>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
