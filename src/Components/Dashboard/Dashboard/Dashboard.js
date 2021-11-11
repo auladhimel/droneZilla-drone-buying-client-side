@@ -14,17 +14,20 @@ import {
 import DashboardHome from '../DashboardHome/DashboardHome';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddReviews from '../AddReviews/AddReviews';
+import useAuth from '../../../hooks/useAuth';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
+    const { admin } = useAuth();
     return (
         <Container>
             <div class="sidenav">
                 <h3>Dashboard</h3>
                 <NavLink to='/home'>Home</NavLink>
                 <NavLink to={`${url}`}>Dashboard</NavLink>
-                <NavLink to={`${url}/makeAdmin`}>Make Admin</NavLink>
-                <NavLink to={`${url}/addReviews`}>Add Reviews</NavLink>
+                {admin && <div>
+                    <NavLink to={`${url}/makeAdmin`}>Make Admin</NavLink>
+                    <NavLink to={`${url}/addReviews`}>Add Reviews</NavLink></div>}
             </div>
 
             <div>
