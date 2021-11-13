@@ -6,11 +6,11 @@ import dashboard from '../../../images/dashboard.jpeg';
 // dashboard home component 
 const DashboardHome = () => {
     return (
-        <Container class="main ms-5 ps-5">
-            <h2 style={{ paddingTop: "30px", marginBottom: "20px", fontSize: "30px", fontWeight: "bold" }}>Dashboard</h2>
+        <div className="main ms-5 ps-5">
+            <h2 style={{ paddingTop: "30px", marginBottom: "20px", marginleft: "20px", fontSize: "30px", fontWeight: "bold" }}>Dashboard</h2>
             <img style={{ borderRadius: "10px", width: "50%" }} src={dashboard} alt="" />
             <Orders></Orders>
-        </Container>
+        </div>
     );
 };
 

@@ -31,9 +31,9 @@ const Dashboard = (props) => {
                 <h3 style={{ backgroundColor: "#FFCA2C", margin: "10px 20px", fontSize: "25px", borderRadius: "2px" }}>Dashboard</h3>
 
                 <NavLink to='/home'>Home</NavLink>
+                <NavLink to={`${url}`}>My Orders</NavLink>
                 {/* admin panel  */}
                 {admin && <div>
-
                     <NavLink to={`${url}/makeAdmin`}>Make Admin</NavLink>
                     <NavLink to={`${url}/addProducts`}>Add Products</NavLink>
                     <NavLink to={`${url}/manageOrders`}>Manage Orders</NavLink>
@@ -41,7 +41,6 @@ const Dashboard = (props) => {
                 </div>}
                 {/* user panel  */}
                 {!admin && <div>
-                    <NavLink to={`${url}`}>My Orders</NavLink>
                     <NavLink to={`${url}/addReviews`}>Add Review</NavLink>
                     <NavLink to={`${url}/pay`}>Pay</NavLink>
                 </div>}

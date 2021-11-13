@@ -25,6 +25,7 @@ const MakeAdmin = () => {
                 if (data.modifiedCount) {
                     console.log(data);
                     setSuccess(true);
+                    alert('Admin created!');
                 }
             })
         e.preventDefault();
