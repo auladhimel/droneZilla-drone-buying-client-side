@@ -3,14 +3,14 @@ import { Card } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 
 const ExploreSingle = (props) => {
-    const { name, description, price, img } = props.explore;
+    const { productName, description, price, image } = props.explore;
     return (
         <div className="col-md-3 service justify-content-center">
 
             <Card style={{ width: '18rem' }} className="fullcard" >
-                <Card.Img className="card-img" variant="top" src={img} />
+                <Card.Img className="card-img" variant="top" src={image} />
                 <Card.Body className="bg-light text-black rounded-bottom text-start cardbody">
-                    <Card.Title>{name}</Card.Title>
+                    <Card.Title>{productName}</Card.Title>
                     <Card.Text>
                         <span id="description">
                             <small>{description}</small></span><br />

@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 import './Product.css';
 
 const Product = (props) => {
-    const { name, description, price, img, setOrderSucess } = props.product;
+    const { productName, description, price, image } = props.product;
 
     return (
         <div className="col-md-3 service justify-content-center">
 
             <Card style={{ width: '18rem' }} className="fullcard" >
-                <Card.Img className="card-img" variant="top" src={img} />
+                <Card.Img className="card-img" variant="top" src={image} />
                 <Card.Body className="bg-light text-black rounded-bottom text-start cardbody">
-                    <Card.Title>{name}</Card.Title>
+                    <Card.Title style={{ fontWeight: "bold" }}>{productName}</Card.Title>
                     <Card.Text>
                         <span id="description">
                             <small>{description}</small></span><br />
-                        <p><b>${price} / Per person</b></p><br />
+                        <p className="mt-3"><b>Price - ${price} / Each</b></p><br />
                         <Link to="/purchase" className="detailsLink">
                             <button className="violet-button">Buy Now</button>
                         </Link>
