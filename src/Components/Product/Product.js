@@ -11,7 +11,7 @@ const Product = (props) => {
 
             <Card style={{ width: '18rem' }} className="fullcard" >
                 <Card.Img className="card-img" variant="top" src={image} />
-                <Card.Body className="bg-light text-black rounded-bottom text-start cardbody">
+                <Card.Body className="bg-light text-black rounded-bottom text-start cardbody text-center">
                     <Card.Title style={{ fontWeight: "bold" }}>{productName}</Card.Title>
                     <Card.Text>
                         <span id="description">

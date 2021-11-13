@@ -9,8 +9,8 @@ const ExploreSingle = (props) => {
 
             <Card style={{ width: '18rem' }} className="fullcard" >
                 <Card.Img className="card-img" variant="top" src={image} />
-                <Card.Body className="bg-light text-black rounded-bottom text-start cardbody">
-                    <Card.Title>{productName}</Card.Title>
+                <Card.Body className="bg-light text-black rounded-bottom text-start cardbody text-center">
+                    <Card.Title style={{ fontWeight: 'bold' }}>{productName}</Card.Title>
                     <Card.Text>
                         <span id="description">
                             <small>{description}</small></span><br />
@@ -23,7 +23,7 @@ const ExploreSingle = (props) => {
 
             </Card>
 
-        </div>
+        </div >
     );
 };
 

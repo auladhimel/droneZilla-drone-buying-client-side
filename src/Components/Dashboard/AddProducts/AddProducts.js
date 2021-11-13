@@ -1,9 +1,15 @@
 import React, { useRef, useState } from 'react';
 import { Button, Col, Container, Form } from 'react-bootstrap';
+import useAuth from '../../../hooks/useAuth';
 import imageAddProducts from '../../../images/image-8.jpeg';
 
 
 const AddProducts = () => {
+
+
+
+
+
     const productNameRef = useRef();
     const descriptionRef = useRef();
     const imageRef = useRef();
