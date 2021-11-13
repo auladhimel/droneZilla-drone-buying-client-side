@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 import './Products.css';
-
+// products component 
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
@@ -13,7 +13,6 @@ const Products = () => {
 
     return (
         <div className="container">
-
             <div className="row justify-content-center">
                 <h3>Most Trending Drones</h3>
                 <p style={{ color: "#f0b916" }}>Get Your One</p>
@@ -24,7 +23,6 @@ const Products = () => {
                     ></Product>)
                 }
             </div>
-
         </div>
     );
 };

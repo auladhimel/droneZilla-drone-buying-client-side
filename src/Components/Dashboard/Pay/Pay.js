@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Container } from 'react-bootstrap';
 import paymentImage from '../../../images/image-6.jpeg';
-
+// payment page 
 const Pay = () => {
     return (
         <Container>

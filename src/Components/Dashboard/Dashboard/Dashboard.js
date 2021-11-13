@@ -20,18 +20,18 @@ import AddProducts from '../AddProducts/AddProducts';
 import ManageOrders from '../ManageOrders/ManageOrders';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import Pay from '../Pay/Pay';
-
+// dashboard component 
 const Dashboard = (props) => {
     let { path, url } = useRouteMatch();
     const { admin, logout } = useAuth();
-    console.log(admin);
+
     return (
         <Container>
             <div className="sidenav">
                 <h3 style={{ backgroundColor: "#FFCA2C", margin: "10px 20px", fontSize: "25px", borderRadius: "2px" }}>Dashboard</h3>
 
                 <NavLink to='/home'>Home</NavLink>
-
+                {/* admin panel  */}
                 {admin && <div>
 
                     <NavLink to={`${url}/makeAdmin`}>Make Admin</NavLink>
@@ -39,6 +39,7 @@ const Dashboard = (props) => {
                     <NavLink to={`${url}/manageOrders`}>Manage Orders</NavLink>
                     <NavLink to={`${url}/manageProducts`}>Manage Products</NavLink>
                 </div>}
+                {/* user panel  */}
                 {!admin && <div>
                     <NavLink to={`${url}`}>My Orders</NavLink>
                     <NavLink to={`${url}/addReviews`}>Add Review</NavLink>
@@ -49,6 +50,7 @@ const Dashboard = (props) => {
 
             <div>
                 <Switch>
+                    {/* nested route  */}
                     <Route exact path={path}>
                         <DashboardHome></DashboardHome>
                     </Route>

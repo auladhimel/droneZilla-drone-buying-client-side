@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 import './Purchase.css';
-
+// purchase component 
 const Purchase = () => {
     const { user } = useAuth();
 
@@ -68,8 +68,6 @@ const Purchase = () => {
                     Place Order
                 </Button>
             </Form>
-
-
         </div >
     );
 };

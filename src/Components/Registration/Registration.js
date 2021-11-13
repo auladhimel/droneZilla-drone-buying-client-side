@@ -4,7 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './Registration.css';
 import imageOne from '../../images/image-2.png'
-
+// registration page 
 const Registration = () => {
     const [loginData, setLoginData] = useState({})
 
@@ -12,15 +12,12 @@ const Registration = () => {
     const history = useHistory();
 
     const handleOnBlur = e => {
-
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         console.log(newLoginData);
         setLoginData(newLoginData);
-
-
         console.log(field, value);
 
     }
@@ -34,6 +31,7 @@ const Registration = () => {
 
     }
     return (
+        // registration form 
         <Container className="d-flex">
             <Col className="registration">
                 <h2 style={{ paddingTop: "20px", marginBottom: "30px", fontSize: "28px", fontWeight: "bold" }}>Please Register</h2>

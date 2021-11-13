@@ -3,9 +3,9 @@ import { Alert, Button, Col, Container, Form, Spinner } from 'react-bootstrap';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import imageLogin from '../../images/image-1.jpeg';
-
+// login page 
 const Login = () => {
-
+    // states 
     const [loginData, setLoginData] = useState({});
     const { user, loginUser, IsLoading, authError } = useAuth();
 
@@ -13,14 +13,11 @@ const Login = () => {
     const history = useHistory();
 
     const handleOnChange = e => {
-
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         setLoginData(newLoginData);
-
-
         console.log(field, value);
 
     }
@@ -30,6 +27,7 @@ const Login = () => {
 
     }
     return (
+        // login form 
         <Container className="d-flex pt-3">
             <Col className="col-md-4">
                 <h2 style={{ paddingTop: "70px", paddingBottom: "25px", fontSize: "25px", fontWeight: "bold" }}>Please Login</h2>
@@ -50,7 +48,7 @@ const Login = () => {
                             New user ? Please Register!
                         </Button>
                     </NavLink>
-
+                    {/* conditional rendering  */}
                     {
                         IsLoading && <Spinner animation="border" />
                     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-
+// single explore data 
 const ExploreSingle = (props) => {
     const { productName, description, price, image } = props.explore;
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-
+// manage order page 
 const ManageOrders = () => {
     return (
         <div>

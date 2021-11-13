@@ -3,7 +3,7 @@ import useAuth from '../../../hooks/useAuth';
 import { Button, Col, Container, Form } from 'react-bootstrap';
 import imageTwo from '../../../images/image-5.png';
 import './AddReviews.css';
-
+// add revies component 
 const AddReviews = () => {
 
     const { user } = useAuth();
@@ -44,8 +44,6 @@ const AddReviews = () => {
                 }
             })
         e.preventDefault();
-        // e.preventDefault();
-        // alert('order placed');
     }
     return (
         <Container className="d-flex pt-5 px-5 ms-5">

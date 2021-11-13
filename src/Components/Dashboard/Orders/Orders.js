@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
-
+// orders page 
 const Orders = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
@@ -33,6 +33,7 @@ const Orders = () => {
 
     return (
         <div>
+            {/* orders table  */}
             <h2 style={{ paddingTop: "10px", marginBottom: "20px", fontSize: "25px", fontWeight: "bold" }}>My Orders : {orders.length}</h2>
             <Table striped bordered hover size="sm">
                 <thead>

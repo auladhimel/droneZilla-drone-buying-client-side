@@ -1,5 +1,5 @@
 import React from 'react';
-
+// manage products page 
 const ManageProducts = () => {
     return (
         <div>

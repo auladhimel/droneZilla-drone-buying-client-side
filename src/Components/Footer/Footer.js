@@ -3,6 +3,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
+// footer part 
 const Footer = () => {
     return (
         <div className="footer">

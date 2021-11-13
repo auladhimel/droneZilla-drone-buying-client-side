@@ -2,13 +2,12 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Product.css';
-
+// product page 
 const Product = (props) => {
     const { productName, description, price, image } = props.product;
 
     return (
         <div className="col-md-3 service justify-content-center">
-
             <Card style={{ width: '18rem' }} className="fullcard" >
                 <Card.Img className="card-img" variant="top" src={image} />
                 <Card.Body className="bg-light text-black rounded-bottom text-start cardbody text-center">
@@ -22,9 +21,7 @@ const Product = (props) => {
                         </Link>
                     </Card.Text>
                 </Card.Body>
-
             </Card>
-
         </div>
     );
 };

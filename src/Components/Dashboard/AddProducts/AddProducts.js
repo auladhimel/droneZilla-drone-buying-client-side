@@ -48,21 +48,14 @@ const AddProducts = () => {
         // e.preventDefault();
         // alert('order placed');
     }
-    // const handleOnBlur = e => {
-    //     const field = e.target.name;
-    //     const value = e.target.value;
-    //     const newInfo = { ...productInfo };
-    //     newInfo[field] = value;
-    //     console.log(newInfo);
-    //     setProductInfo(newInfo);
 
-    // }
 
 
 
     return (
         <Container className="d-flex pt-5">
             <Col>
+                {/* Add product form  */}
                 <h2 className="ps-5" style={{ paddingTop: "70px", paddingBottom: "25px", fontSize: "25px", fontWeight: "bold" }}>Add Products</h2>
                 <Form className="ps-5" style={{ width: "75%", margin: "auto" }} onSubmit={handleAddProductSubmit}>
                     <Form.Group style={{ width: '100%', margin: 'auto' }} className="mb-3 ps-5">
