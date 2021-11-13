@@ -3,16 +3,14 @@
 }
 /* slider style  */
 .slider{
+    display: flex;
     font-family: 'Dancing Script', cursive;
-    height: 600px;
-    background-image: url(https://149369349.v2.pressablecdn.com/wp-content/uploads/2013/12/drone1.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    color: white;
-    margin-bottom: 50px;
 }
 .slider img{
-    opacity:92%;  
+    opacity:92%;
+    width: 100%;
+    
+       
 }
 /* caption style  */
 .caption{
@@ -48,6 +46,6 @@
 }
 .button:hover{
     color: #061A3A;
-    background-color: violet;
+    background-color: #eea70f;
     transition:  0.5s ease;
 }

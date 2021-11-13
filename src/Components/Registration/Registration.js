@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Alert, Button, Form, Spinner } from 'react-bootstrap';
+import { Alert, Button, Col, Container, Form, Spinner } from 'react-bootstrap';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import './Registration.css';
+import imageOne from '../../images/image-2.png'
 
 const Registration = () => {
     const [loginData, setLoginData] = useState({})
@@ -32,50 +34,53 @@ const Registration = () => {
 
     }
     return (
-        <div>
-            <h2>Please Register</h2>
-            {!IsLoading && <Form onSubmit={handleLoginSubmit}>
-                <Form.Group style={{ width: '30%', margin: 'auto' }} className="mb-3">
-                    <Form.Control type="text" name="name" onBlur={handleOnBlur} placeholder="Your Name" />
-                </Form.Group>
-                <Form.Group style={{ width: '30%', margin: 'auto' }} className="mb-3">
-                    <Form.Control type="email" name="email" onBlur={handleOnBlur} placeholder="Your Email" />
-                </Form.Group>
-                <Form.Group style={{ width: '30%', margin: 'auto' }} className="mb-3">
-                    <Form.Control type="password" name="password" onBlur={handleOnBlur} placeholder="Your Password" />
+        <Container className="d-flex">
+            <Col className="registration">
+                <h2 style={{ paddingTop: "20px", marginBottom: "30px", fontSize: "28px", fontWeight: "bold" }}>Please Register</h2>
+                {!IsLoading && <Form onSubmit={handleLoginSubmit}>
+                    <Form.Group style={{ width: '60%', margin: 'auto' }} className="mb-3">
+                        <Form.Control type="text" name="name" onBlur={handleOnBlur} placeholder="Your Name" />
+                    </Form.Group>
+                    <Form.Group style={{ width: '60%', margin: 'auto' }} className="mb-3">
+                        <Form.Control type="email" name="email" onBlur={handleOnBlur} placeholder="Your Email" />
+                    </Form.Group>
+                    <Form.Group style={{ width: '60%', margin: 'auto' }} className="mb-3">
+                        <Form.Control type="password" name="password" onBlur={handleOnBlur} placeholder="Your Password" />
 
-                </Form.Group>
+                    </Form.Group>
 
-                <Form.Group style={{ width: '30%', margin: 'auto' }} className="mb-3">
-                    <Form.Control type="password" name="password2" onBlur={handleOnBlur} placeholder="Retype Your Password" />
-                    <Button variant="primary" type="submit">
-                        Register
-                    </Button>
-                </Form.Group>
+                    <Form.Group style={{ width: '60%', margin: 'auto' }} className="mb-3">
+                        <Form.Control type="password" name="password2" onBlur={handleOnBlur} placeholder="Retype Your Password" />
+                        <Button className="mt-3" variant="warning" type="submit">
+                            Register
+                        </Button>
+                    </Form.Group>
 
+                    <NavLink to='/login'>
+                        <Button className="mb-4 px-4" variant="outline-warning" type="submit">
+                            Already Registered ? Please Login!
+                        </Button>
+                    </NavLink>
 
-                <NavLink to='/login'>
-                    <Button variant="outline-info" type="submit">
-                        Already Registered ? Please Login!
-                    </Button>
-                </NavLink>
-
-
-            </Form>}
-            {
-                IsLoading && <Spinner animation="border" />
-            }
-            {
-                user?.email && <Alert variant="success">
-                    User created successfully!
-                </Alert>
-            }
-            {
-                authError && <Alert variant="danger">
-                    {authError}
-                </Alert>
-            }
-        </div>
+                </Form>}
+                {
+                    IsLoading && <Spinner animation="border" />
+                }
+                {
+                    user?.email && <Alert variant="success">
+                        User created successfully!
+                    </Alert>
+                }
+                {
+                    authError && <Alert variant="danger">
+                        {authError}
+                    </Alert>
+                }
+            </Col>
+            <Col className="image">
+                <img src={imageOne} alt="" />
+            </Col>
+        </Container>
     );
 };
 

@@ -1,12 +1,11 @@
 .footer{
+   
+    margin-top: 500px;
     padding-top: 40px;
+    padding-left: 50px;
     color: rgb(201, 201, 201);
     background-color: #061A3A;
 }
-
-.footer-img img{
-    border:1px solid green;
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
+.about-footer{
+    margin-left: 60px;
 }

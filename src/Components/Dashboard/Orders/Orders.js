@@ -13,7 +13,7 @@ const Orders = () => {
     }, [])
     return (
         <div>
-            <h2>My Orders : {orders.length}</h2>
+            <h2 style={{ paddingTop: "10px", marginBottom: "20px", fontSize: "25px", fontWeight: "bold" }}>My Orders : {orders.length}</h2>
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>

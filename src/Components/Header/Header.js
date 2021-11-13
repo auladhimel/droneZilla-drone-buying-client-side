@@ -7,22 +7,22 @@ import './Header.css';
 const Header = () => {
     const { user, logout } = useAuth();
     return (
-        <div className="MenuBar-container menubar mt-2 d-flex align-items-center">
+        <div className="MenuBar-container fixed-top menubar d-flex align-items-center">
             <div className="container">
                 <div className="row d-flex align-items-center">
-                    <div className="col-md-2">
+                    <div className="col-md-1">
 
                         <div className="logo-img">
                             <Link to="/" className=" d-flex align-items-center items">
-                                <h3 className="logoname">Drone<span className="vio">Zilla</span></h3>
+                                <h3 className="logoname">Drone<span className="zilla">Zilla</span></h3>
                             </Link>
 
                         </div>
 
                     </div>
-                    <div className="col-md-10">
+                    <div className="col-md-11">
                         <div className="menu-container">
-                            <ul className="d-flex align-items-center justify-content-end ">
+                            <ul className="col-sm-12 d-flex align-items-center justify-content-end">
 
                                 <Link to="/" className="items">
                                     <li>Home</li>
@@ -36,20 +36,22 @@ const Header = () => {
 
                                 {
                                     user?.email ?
-                                        <Container>
-                                            <Link to="/dashboard" className="items">
-                                                <li>Dashboard</li>
-                                            </Link>
-                                            <Button onClick={logout}>Logout</Button>
-                                        </Container>
+                                        <Link to="/dashboard" className="items">
+                                            <li>Dashboard</li>
+                                        </Link>
                                         :
                                         <Link to="/login" className="items">
                                             <li>Login</li>
                                         </Link>
                                 }
+                                {
+                                    user?.email ?
+                                        <Button style={{ marginTop: "20px" }} variant="warning" onClick={logout}>Logout</Button>
+                                        :
+                                        <p></p>
+                                }
 
-
-                                {/* {user.email ? <small className="user-name">Signed in as <span style={{ color: "violet", fontWeight: "bold" }}>{user.displayName}</span></small> : <p></p>} */}
+                                {user.email ? <small className="user-name">Signed in as <span style={{ color: "#FFCA2C", fontWeight: "bold" }}>{user.displayName}</span></small> : <p></p>}
 
 
                             </ul>

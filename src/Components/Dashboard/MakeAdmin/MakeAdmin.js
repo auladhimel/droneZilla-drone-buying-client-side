@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Alert, Button, Col, Form } from 'react-bootstrap';
+import { Alert, Button, Col, Container, Form } from 'react-bootstrap';
+import makeAdminImage from '../../../images/image-9.jpeg';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
@@ -29,20 +30,23 @@ const MakeAdmin = () => {
         e.preventDefault();
     }
     return (
-        <div>
-            <h2>Make an Admin</h2>
-            <Form style={{ width: "30%", margin: "auto" }} onSubmit={handleAdminSubmit}>
-                <Form.Group className="mb-3" controlId="formPlaintextPassword">
-                    <Col sm="10">
-                        <Form.Control onBlur={handleOnBlur} type="email" placeholder="Email" />
-                    </Col>
-                </Form.Group>
-                <Button type="submit">Make Admin</Button>
+        <Container className="d-flex ps-5 ms-5 pt-5">
+            <Col>
+                <h2 style={{ paddingTop: "50px", fontSize: "25px", fontWeight: "bold" }}>Make an Admin</h2>
+                <Form style={{ width: "100%", margin: "auto" }} onSubmit={handleAdminSubmit}>
+                    <Form.Group className="mb-3" controlId="formPlaintextPassword">
+                        <Col>
+                            <Form.Control onBlur={handleOnBlur} type="email" placeholder="Email" />
+                        </Col>
+                    </Form.Group>
+                    <Button variant="warning" type="submit">Make Admin</Button>
+                </Form>
 
-            </Form>
-
-            {success && <Alert style={{ width: "30%", margin: "auto", marginTop: "10px" }} variant="success">Admin Created Successfully</Alert>}
-        </div>
+                {success && <Alert style={{ width: "100%", margin: "auto", marginTop: "10px" }} variant="success">Admin Created Successfully</Alert>}
+            </Col>
+            <Col className="makeAdminImage">
+                <img src={makeAdminImage} alt="" /></Col>
+        </Container>
     );
 };
 

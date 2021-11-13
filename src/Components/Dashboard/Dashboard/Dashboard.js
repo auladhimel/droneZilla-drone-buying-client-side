@@ -21,25 +21,27 @@ import ManageOrders from '../ManageOrders/ManageOrders';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import Pay from '../Pay/Pay';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     let { path, url } = useRouteMatch();
     const { admin } = useAuth();
+    console.log(admin);
     return (
         <Container>
-            <div class="sidenav">
-                <h3>Dashboard</h3>
+            <div className="sidenav">
+                <h3 style={{ backgroundColor: "#FFCA2C", margin: "10px 20px", fontSize: "25px", borderRadius: "2px" }}>Dashboard</h3>
+
                 <NavLink to='/home'>Home</NavLink>
                 <NavLink to={`${url}`}>My Orders</NavLink>
-                {admin && <div>
-                    <NavLink to={`${url}/makeAdmin`}>Make Admin</NavLink>
-                    <NavLink to={`${url}/addProducts`}>Add Products</NavLink>
-                    <NavLink to={`${url}/manageOrders`}>Manage Orders</NavLink>
-                    <NavLink to={`${url}/manageProducts`}>Manage Products</NavLink>
-                </div>}
-                {!admin && <div>
-                    <NavLink to={`${url}/addReviews`}>Add Review</NavLink>
-                    <NavLink to={`${url}/pay`}>Pay</NavLink>
-                </div>}
+                {/* {admin && <div> */}
+                <NavLink to={`${url}/makeAdmin`}>Make Admin</NavLink>
+                <NavLink to={`${url}/addProducts`}>Add Products</NavLink>
+                <NavLink to={`${url}/manageOrders`}>Manage Orders</NavLink>
+                <NavLink to={`${url}/manageProducts`}>Manage Products</NavLink>
+                {/* </div>} */}
+                {/* {!admin && <div> */}
+                <NavLink to={`${url}/addReviews`}>Add Review</NavLink>
+                <NavLink to={`${url}/pay`}>Pay</NavLink>
+                {/* </div>} */}
                 <NavLink to={`${url}/logout`}>Logout</NavLink>
             </div>
 
@@ -54,7 +56,19 @@ const Dashboard = () => {
                     <Route path={`${path}/pay`}>
                         <Pay></Pay>
                     </Route>
-                    <AdminRoute path={`${path}/makeAdmin`}>
+                    <Route path={`${path}/makeAdmin`}>
+                        <MakeAdmin></MakeAdmin>
+                    </Route>
+                    <Route path={`${path}/addProducts`}>
+                        <AddProducts></AddProducts>
+                    </Route>
+                    <Route path={`${path}/manageOrders`}>
+                        <ManageOrders></ManageOrders>
+                    </Route>
+                    <Route path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
+                    </Route>
+                    {/* <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </AdminRoute>
                     <AdminRoute path={`${path}/addProducts`}>
@@ -65,7 +79,7 @@ const Dashboard = () => {
                     </AdminRoute>
                     <AdminRoute path={`${path}/manageProducts`}>
                         <ManageProducts></ManageProducts>
-                    </AdminRoute>
+                    </AdminRoute> */}
                 </Switch>
             </div>
         </Container>

@@ -6,8 +6,6 @@ import './Purchase.css';
 const Purchase = () => {
     const { user } = useAuth();
 
-
-
     const initialInfo = { customerName: user.displayName, email: user.email, phone: '' }
     const [orderInfo, setOrderInfo] = useState(initialInfo);
 
@@ -46,7 +44,7 @@ const Purchase = () => {
     }
     return (
         <div className="purchase">
-            <h1>Purchase :</h1>
+            <h1 style={{ paddingTop: "20px", marginBottom: "30px", fontSize: "28px", fontWeight: "bold" }}>Purchase</h1>
             <Form onSubmit={handlePurchasingSubmit}>
                 <Form.Group style={{ width: '30%', margin: 'auto' }} className="mb-3">
                     <Form.Control type="text" name="customerName" placeholder="Your Name" value={user.displayName} />
@@ -66,7 +64,7 @@ const Purchase = () => {
                 <Form.Group style={{ width: '30%', margin: 'auto' }} className="mb-3" >
                     <Form.Control type="number" onBlur={handleOnBlur} name="quantity" placeholder="Quantity" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="warning" type="submit">
                     Place Order
                 </Button>
             </Form>
