@@ -11,6 +11,26 @@ const Orders = () => {
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
+    // Delete Order
+    const handleDeleteOrder = id => {
+        const proceed = window.confirm('Are you sure! You want to delete?');
+        if (proceed) {
+            const url = `http://localhost:5000/orders/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('Deleted Successfully')
+                        const remainingOrders = orders.filter(order => order._id !== id);
+                        setOrders(remainingOrders);
+                    }
+                });
+        }
+
+    }
+
     return (
         <div>
             <h2 style={{ paddingTop: "10px", marginBottom: "20px", fontSize: "25px", fontWeight: "bold" }}>My Orders : {orders.length}</h2>
@@ -23,6 +43,7 @@ const Orders = () => {
                         <th>Phone</th>
                         <th>Address</th>
                         <th>Quantity</th>
+                        <th>Action</th>
 
                     </tr>
                 </thead>
@@ -37,6 +58,7 @@ const Orders = () => {
                             <td>{row.phone}</td>
                             <td>{row.address}</td>
                             <td>{row.quantity}</td>
+                            <td><button className="btn-success mb-1">Update</button> <button className="btn-danger" onClick={() => handleDeleteOrder(row._id)}>Delete</button></td>
                         </tr>
 
                     ))}
