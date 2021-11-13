@@ -2,11 +2,12 @@ import React from 'react';
 import './Banner.css';
 import { Col, Container } from 'react-bootstrap';
 import imageBanner from '../../images/image-5.png'
-
+// banner component
 const Banner = () => {
     return (
         <Container className="slider">
             <div>
+                {/* banner text  */}
                 <div className="caption">
                     <h6 style={{ color: "#061A3A" }} className="depression-solution fw-bold">The World’s Smallest Quadcopter</h6>
                     <h1 style={{ color: "#FFCA2C" }}>Elomus F18 Drone 3 Auto</h1>

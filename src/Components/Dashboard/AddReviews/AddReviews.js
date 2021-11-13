@@ -29,7 +29,7 @@ const AddReviews = () => {
             image
         }
         //send data to server
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://thawing-mesa-49246.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

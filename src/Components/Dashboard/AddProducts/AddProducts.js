@@ -30,7 +30,7 @@ const AddProducts = () => {
             price
         }
         //send data to server
-        fetch('http://localhost:5000/products', {
+        fetch('https://thawing-mesa-49246.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

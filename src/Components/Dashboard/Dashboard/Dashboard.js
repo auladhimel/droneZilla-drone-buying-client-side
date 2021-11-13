@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 // import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './Dashboard.css';
@@ -23,7 +23,7 @@ import Pay from '../Pay/Pay';
 
 const Dashboard = (props) => {
     let { path, url } = useRouteMatch();
-    const { admin } = useAuth();
+    const { admin, logout } = useAuth();
     console.log(admin);
     return (
         <Container>
@@ -31,18 +31,20 @@ const Dashboard = (props) => {
                 <h3 style={{ backgroundColor: "#FFCA2C", margin: "10px 20px", fontSize: "25px", borderRadius: "2px" }}>Dashboard</h3>
 
                 <NavLink to='/home'>Home</NavLink>
-                <NavLink to={`${url}`}>My Orders</NavLink>
-                {/* {admin && <div> */}
-                <NavLink to={`${url}/makeAdmin`}>Make Admin</NavLink>
-                <NavLink to={`${url}/addProducts`}>Add Products</NavLink>
-                <NavLink to={`${url}/manageOrders`}>Manage Orders</NavLink>
-                <NavLink to={`${url}/manageProducts`}>Manage Products</NavLink>
-                {/* </div>} */}
-                {/* {!admin && <div> */}
-                <NavLink to={`${url}/addReviews`}>Add Review</NavLink>
-                <NavLink to={`${url}/pay`}>Pay</NavLink>
-                {/* </div>} */}
-                <NavLink to={`${url}/logout`}>Logout</NavLink>
+
+                {admin && <div>
+
+                    <NavLink to={`${url}/makeAdmin`}>Make Admin</NavLink>
+                    <NavLink to={`${url}/addProducts`}>Add Products</NavLink>
+                    <NavLink to={`${url}/manageOrders`}>Manage Orders</NavLink>
+                    <NavLink to={`${url}/manageProducts`}>Manage Products</NavLink>
+                </div>}
+                {!admin && <div>
+                    <NavLink to={`${url}`}>My Orders</NavLink>
+                    <NavLink to={`${url}/addReviews`}>Add Review</NavLink>
+                    <NavLink to={`${url}/pay`}>Pay</NavLink>
+                </div>}
+                <Button variant="warning" style={{ marginTop: "5px", backgroundColor: "#061A3A", color: "white" }} onClick={logout}>Logout</Button>
             </div>
 
             <div>
@@ -56,19 +58,7 @@ const Dashboard = (props) => {
                     <Route path={`${path}/pay`}>
                         <Pay></Pay>
                     </Route>
-                    <Route path={`${path}/makeAdmin`}>
-                        <MakeAdmin></MakeAdmin>
-                    </Route>
-                    <Route path={`${path}/addProducts`}>
-                        <AddProducts></AddProducts>
-                    </Route>
-                    <Route path={`${path}/manageOrders`}>
-                        <ManageOrders></ManageOrders>
-                    </Route>
-                    <Route path={`${path}/manageProducts`}>
-                        <ManageProducts></ManageProducts>
-                    </Route>
-                    {/* <AdminRoute path={`${path}/makeAdmin`}>
+                    <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </AdminRoute>
                     <AdminRoute path={`${path}/addProducts`}>
@@ -79,10 +69,10 @@ const Dashboard = (props) => {
                     </AdminRoute>
                     <AdminRoute path={`${path}/manageProducts`}>
                         <ManageProducts></ManageProducts>
-                    </AdminRoute> */}
+                    </AdminRoute>
                 </Switch>
             </div>
-        </Container>
+        </Container >
     );
 };
 
