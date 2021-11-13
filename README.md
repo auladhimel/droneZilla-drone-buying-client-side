@@ -1,6 +1,8 @@
 # DroneZilla
 "DroneZilla" Web Application is for saling most trending drone in online platform. User can buy their desire drone from here. They can check there order list. Admin can check all the orders and can manage them.
 
+This git code is for client side of the project.
+
 # Live Link
 Click here to visit the site : https://drone-zilla.web.app/
 
@@ -26,3 +28,8 @@ Aulad Himel
 
 ### hosted
 Firebase, Heroku
+ <Container class="main ms-5 ps-5">
+            <h2 style={{ paddingTop: "30px", marginBottom: "20px", fontSize: "30px", fontWeight: "bold" }}>Dashboard</h2>
+            <img style={{ borderRadius: "10px" }} src={dashboard} alt="" />
+            
+        </Container>
