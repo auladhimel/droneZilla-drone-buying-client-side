@@ -1,0 +1,30 @@
+.service{
+    margin: 20px;
+    padding-top: 20px;
+    padding-bottom: 20;
+    margin-bottom: 80px;    
+}
+.card-img{
+    
+}
+.reviewer{
+    height: 100%;
+    width: 40%;
+    margin:auto;
+}
+.detailsLink{
+    color: black;
+    text-decoration: none !important;
+}
+.violet-button{
+    background-color: #f0b916;
+    color: #061A3A;
+    border: none;
+    border-radius: 2px;
+    padding: 10px 20px;
+}
+.violet-button:hover{
+background-color: #061A3A;
+color: white;
+transition: 0.5s ease;
+}

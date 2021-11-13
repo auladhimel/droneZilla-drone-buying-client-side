@@ -12,6 +12,7 @@ const AddReviews = () => {
     const nameRef = useRef();
     const ratingsRef = useRef();
     const reviewRef = useRef();
+    const imageRef = useRef();
 
     const handleReviewSubmit = e => {
         //collect data
@@ -19,11 +20,13 @@ const AddReviews = () => {
         const name = nameRef.current.value;
         const ratings = ratingsRef.current.value;
         const review = reviewRef.current.value;
+        const image = imageRef.current.value;
         const reviews = {
             email,
             name,
             ratings,
-            review
+            review,
+            image
         }
         //send data to server
         fetch('http://localhost:5000/reviews', {
@@ -55,6 +58,9 @@ const AddReviews = () => {
                     </Form.Group>
                     <Form.Group style={{ width: '70%', margin: 'auto' }} className="mb-3">
                         <Form.Control type="text" ref={nameRef} name="customerName" placeholder="Your Name" value={user.displayName} />
+                    </Form.Group>
+                    <Form.Group style={{ width: '70%', margin: 'auto' }} className="mb-3">
+                        <Form.Control type="text" ref={imageRef} name="image" placeholder="Image url" />
                     </Form.Group>
                     <Form.Group style={{ width: '70%', margin: 'auto' }} className="mb-3" >
                         <Form.Control type="number" ref={ratingsRef} name="addRatings" placeholder="Add Ratings" />
