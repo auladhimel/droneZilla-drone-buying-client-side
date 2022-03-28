@@ -13,7 +13,7 @@ const MakeAdmin = () => {
     // send data 
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch('https://thawing-mesa-49246.herokuapp.com/admin', {
+        fetch('http://localhost:5000/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -22,6 +22,7 @@ const MakeAdmin = () => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 if (data.modifiedCount) {
                     console.log(data);
                     setSuccess(true);

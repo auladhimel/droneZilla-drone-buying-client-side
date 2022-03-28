@@ -6,7 +6,7 @@ import './Purchase.css';
 const Purchase = () => {
     const { user } = useAuth();
 
-    const initialInfo = { customerName: user.displayName, email: user.email, phone: '' }
+    const initialInfo = { customerName: user.displayName, email: user.email, phone: '', status:'Pending' }
     const [orderInfo, setOrderInfo] = useState(initialInfo);
 
 
@@ -14,7 +14,7 @@ const Purchase = () => {
         //collect data
         const order = { ...orderInfo }
         //send data to server
-        fetch('https://thawing-mesa-49246.herokuapp.com/orders', {
+        fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

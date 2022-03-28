@@ -6,7 +6,7 @@ const Orders = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        const url = `https://thawing-mesa-49246.herokuapp.com/orders?email=${user.email}`
+        const url = `http://localhost:5000/orders?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -15,7 +15,7 @@ const Orders = () => {
     const handleDeleteOrder = id => {
         const proceed = window.confirm('Are you sure! You want to delete?');
         if (proceed) {
-            const url = `https://thawing-mesa-49246.herokuapp.com/orders/${id}`;
+            const url = `http://localhost:5000/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -45,7 +45,6 @@ const Orders = () => {
                         <th>Address</th>
                         <th>Quantity</th>
                         <th>Action</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -61,9 +60,7 @@ const Orders = () => {
                             <td>{row.quantity}</td>
                             <td><button className="btn-success mb-1">Update</button> <button className="btn-danger" onClick={() => handleDeleteOrder(row._id)}>Delete</button></td>
                         </tr>
-
                     ))}
-
                 </tbody>
             </Table>
         </div>

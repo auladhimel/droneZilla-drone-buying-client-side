@@ -90,7 +90,7 @@ const useFirebase = () => {
         , [])
 
     useEffect(() => {
-        fetch(`https://thawing-mesa-49246.herokuapp.com/users/${user.email}`)
+        fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])

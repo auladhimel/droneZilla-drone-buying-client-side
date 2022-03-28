@@ -1,9 +1,9 @@
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_API_KEY,
-    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_APP_ID,
+    apiKey: "AIzaSyAyQWOJZZD5vlvSsVZqnhWPCrQvokVQOrc",
+    authDomain: "drone-zilla.firebaseapp.com",
+    projectId: "drone-zilla",
+    storageBucket: "drone-zilla.appspot.com",
+    messagingSenderId: "788289369482",
+    appId: "1:788289369482:web:69b850d74a49a7f5c50473",
 };
 export default firebaseConfig;

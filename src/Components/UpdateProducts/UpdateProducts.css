@@ -1,0 +1,15 @@
+.updateProduct {
+  font-family: "Dancing Script", cursive;
+  margin-top: 80px;
+}
+.updateProduct h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.submit {
+  font-size: 18px;
+  border: 1px solid #061a3a;
+  border-radius: 5px;
+  background-color: #ffca2c;
+  color: #061a3a;
+}
