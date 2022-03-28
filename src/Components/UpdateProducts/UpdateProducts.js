@@ -9,7 +9,7 @@ const UpdateProducts = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    fetch(`http://localhost:5000/update/${productId}`,{
+    fetch(`https://young-badlands-33283.herokuapp.com/update/${productId}`,{
         method: "PUT",
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(data),
@@ -23,7 +23,7 @@ const UpdateProducts = () => {
 
   }
     useEffect(()=>{
-        fetch(`http://localhost:5000/singleProduct/${productId}`)
+        fetch(`https://young-badlands-33283.herokuapp.com/singleProduct/${productId}`)
         .then((res)=>res.json())
         .then((data)=>setSingleProduct(data));
 

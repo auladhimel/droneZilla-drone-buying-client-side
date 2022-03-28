@@ -5,7 +5,7 @@ import './Products.css';
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://young-badlands-33283.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
 
@@ -13,7 +13,7 @@ const Products = () => {
 
     return (
         <div className="container">
-            <div className="row justify-content-center">
+            <div className="row justify-content-center pt-5">
                 <h3>Most Trending Drones</h3>
                 <p style={{ color: "#f0b916" }}>Get Your One</p>
                 {

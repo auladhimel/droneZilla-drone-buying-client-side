@@ -1,51 +1,49 @@
-.banner-img img{
-    width: 100%;
+.banner-img img {
+  width: 100%;
 }
 /* slider style  */
-.slider{
-    display: flex;
-    font-family: 'Dancing Script', cursive;
+.slider {
+  font-family: "Dancing Script", cursive;
 }
-.slider img{
-    opacity:92%;
-    width: 100%;
-    
-       
+.slider img {
+  opacity: 50%;
+  width: 100%;
 }
 /* caption style  */
-.caption{
-    font-family: 'Dancing Script', cursive;
-    padding-top: 100px;
-    padding-left: 100px;
-    justify-content: left;
-    text-align: left;
-    margin-bottom: 200px;
+.caption {
+  font-family: "Dancing Script", cursive;
+  padding-top: 100px;
+  padding-left: 100px;
+  justify-content: left;
+  text-align: left;
+  margin-bottom: 200px;
 }
-.caption h1,h4{
-    font-family: 'Dancing Script', cursive;
-    margin-top: 20px;
-    margin-bottom: 10px;
+.caption h1,
+h4 {
+  font-family: "Dancing Script", cursive;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
-.caption h4{
-    font-family: 'Dancing Script', cursive;
-    font-family: 'Exo 2', sans-serif;
-    margin-top: 20px;
-    margin-bottom: 10px;
+.caption h4 {
+  font-family: "Dancing Script", cursive;
+  font-family: "Exo 2", sans-serif;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 /* button style  */
-.button{
-    font-family: 'Dancing Script', cursive;
-    font-weight: bold;
-    font-family: 'Exo 2', sans-serif;
-    margin-top: 30px;
-    padding: 10px 36px;
-    background-color: #061A3A;
-    color: white;
-    border: none;
-    border-radius: 40px;
+.button {
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+  font-family: "Exo 2", sans-serif;
+  margin-top: 30px;
+  padding: 10px 36px;
+  background-color: #061a3a;
+  color: white;
+  border: none;
+  border-radius: 40px;
 }
-.button:hover{
-    color: #061A3A;
-    background-color: #eea70f;
-    transition:  0.5s ease;
+.button:hover {
+  color: #061a3a;
+  background-color: #eea70f;
+  transition: 0.5s ease;
 }

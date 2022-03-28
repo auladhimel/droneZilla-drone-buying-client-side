@@ -14,7 +14,7 @@ const ManageOrders = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/allOrders?email=${user.email}`
+        const url = `https://young-badlands-33283.herokuapp.com/allOrders?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -22,7 +22,7 @@ const ManageOrders = () => {
 
     const handleUpdate=(id)=>{
         const proceed = window.confirm('Are you sure! You want to update status?');
-        fetch(`http://localhost:5000/updateStatus/${id}`,{
+        fetch(`https://young-badlands-33283.herokuapp.com/updateStatus/${id}`,{
             method:"PUT",
             headers:{"content-type": "application/json"},
             body: JSON.stringify({status}),
@@ -34,7 +34,7 @@ const ManageOrders = () => {
     const handleDeleteOrder = id => {
         const proceed = window.confirm('Are you sure! You want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://young-badlands-33283.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

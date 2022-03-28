@@ -14,7 +14,7 @@ const Purchase = () => {
         //collect data
         const order = { ...orderInfo }
         //send data to server
-        fetch('http://localhost:5000/orders', {
+        fetch('https://young-badlands-33283.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
