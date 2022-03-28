@@ -20,6 +20,7 @@ import AddProducts from '../AddProducts/AddProducts';
 import ManageOrders from '../ManageOrders/ManageOrders';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import Pay from '../Pay/Pay';
+import Orders from '../Orders/Orders';
 // dashboard component 
 const Dashboard = (props) => {
     let { path, url } = useRouteMatch();
@@ -41,7 +42,7 @@ const Dashboard = (props) => {
                 </div>}
                 {/* user panel  */}
                 {!admin && <div>
-                    <NavLink to={`${url}`}>My Orders</NavLink>
+                    <NavLink to={`${url}/orders`}>My Orders</NavLink>
                     <NavLink to={`${url}/addReviews`}>Add Review</NavLink>
                     <NavLink to={`${url}/pay`}>Payment</NavLink>
                 </div>}
@@ -56,6 +57,9 @@ const Dashboard = (props) => {
                     </Route>
                     <Route path={`${path}/addReviews`}>
                         <AddReviews></AddReviews>
+                    </Route>
+                    <Route path={`${path}/orders`}>
+                        <Orders></Orders>
                     </Route>
                     <Route path={`${path}/pay`}>
                         <Pay></Pay>
