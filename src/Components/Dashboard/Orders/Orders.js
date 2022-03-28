@@ -60,7 +60,7 @@ const Orders = () => {
                             <td>{row.address}</td>
                             <td>{row.quantity}</td>
                             <td>{row.status}</td>
-                            <td><button className="btn-success mb-1">Update</button> <button className="btn-danger" onClick={() => handleDeleteOrder(row._id)}>Delete</button></td>
+                            <td><button className="btn-danger border-0 rounded" onClick={() => handleDeleteOrder(row._id)}>Cancel</button></td>
                         </tr>
                     ))}
                 </tbody>

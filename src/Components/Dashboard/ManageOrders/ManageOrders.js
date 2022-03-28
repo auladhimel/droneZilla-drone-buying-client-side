@@ -28,14 +28,17 @@ const ManageOrders = () => {
     }, [])
 
     const handleUpdate=(id)=>{
+        
         const proceed = window.confirm('Are you sure! You want to update status?');
-        fetch(`https://young-badlands-33283.herokuapp.com/updateStatus/${id}`,{
-            method:"PUT",
-            headers:{"content-type": "application/json"},
-            body: JSON.stringify({status}),
-        })     
-        alert('Updated Successfully');
- 
+
+        if(proceed){
+            fetch(`https://young-badlands-33283.herokuapp.com/updateStatus/${id}`,{
+                method:"PUT",
+                headers:{"content-type": "application/json"},
+                body: JSON.stringify({status}),
+            })     
+            alert('Updated Successfully');
+        }  
     }
     // Delete Order
     const handleDeleteOrder = id => {
