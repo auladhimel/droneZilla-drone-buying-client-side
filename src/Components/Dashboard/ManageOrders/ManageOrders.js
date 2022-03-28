@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash , faEdit} from '@fortawesome/free-solid-svg-icons';
+
 // ManageOrders page 
 const ManageOrders = () => {
+
+    const elementTrash = <FontAwesomeIcon icon={faTrash} />
+    const elementEdit = <FontAwesomeIcon icon={faEdit} />
+
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
     const [status,setStatus]=useState("");
@@ -78,9 +85,11 @@ const ManageOrders = () => {
                             <td>{row.phone}</td>
                             <td>{row.address}</td>
                             <td>{row.quantity}</td>
-                            <td style={{width:'30x'}}><input type="text" onChange={handleStatus} defaultValue={row.status} style={{width:'60%'}}></input>
+                            <td style={{width:'10%'}}><input type="text" onChange={handleStatus} defaultValue={row.status} style={{width:'90%'}}></input>
                             </td>                          
-                            <td><button onClick={()=>handleUpdate(row._id)} className="btn-success mb-1">Update</button> <button className="btn-danger" onClick={() => handleDeleteOrder(row._id)}>Delete</button></td>
+                            <td>
+                                <button onClick={()=>handleUpdate(row._id)} className="btn-outline-success rounded me-1 border-0">{elementEdit}</button> 
+                            <button className="btn-outline-danger rounded border-0" onClick={() => handleDeleteOrder(row._id)}>{elementTrash}</button></td>
                         </tr>
                     ))}
                 </tbody>

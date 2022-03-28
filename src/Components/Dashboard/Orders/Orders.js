@@ -44,6 +44,7 @@ const Orders = () => {
                         <th>Phone</th>
                         <th>Address</th>
                         <th>Quantity</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -58,6 +59,7 @@ const Orders = () => {
                             <td>{row.phone}</td>
                             <td>{row.address}</td>
                             <td>{row.quantity}</td>
+                            <td>{row.status}</td>
                             <td><button className="btn-success mb-1">Update</button> <button className="btn-danger" onClick={() => handleDeleteOrder(row._id)}>Delete</button></td>
                         </tr>
                     ))}

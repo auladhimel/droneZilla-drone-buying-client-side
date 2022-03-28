@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash , faEdit} from '@fortawesome/free-solid-svg-icons';
+
 // explore page 
 const ManageProducts = () => {
+
+    const elementTrash = <FontAwesomeIcon icon={faTrash} />
+    const elementEdit = <FontAwesomeIcon icon={faEdit} />
+
     const [products, setProducts] = useState([]);
     useEffect(() => {
         fetch('https://young-badlands-33283.herokuapp.com/products')
@@ -14,8 +21,8 @@ const ManageProducts = () => {
     return (
         <div>
             {/* orders table  */}
-            <h2 style={{ paddingTop: "10px", marginBottom: "20px", fontSize: "25px", fontWeight: "bold" }}>My Orders : {products.length}</h2>
-            <Table striped bordered hover size="sm">
+            <h2 style={{ paddingTop: "10px", marginBottom: "20px", fontSize: "25px", fontWeight: "bold" }}>All Products : {products.length}</h2>
+            <Table striped bordered hover size="sm" style={{marginLeft:"80px"}}>
                 <thead>
                     <tr>
                         <th>Model Name</th>
@@ -33,8 +40,8 @@ const ManageProducts = () => {
                             <td>{row.description.slice(0,40)}</td>
                             <td>{row.price}</td>
                             <td>
-                                <Link to={`/update/${row._id}`}><button className="btn-success mb-1">Update</button></Link>
-                            <button className="btn-danger" onClick="{() => handleDeleteOrder(row._id)}">Delete</button></td>
+                                <Link to={`/update/${row._id}`}><button className="btn-outline-success rounded border-0 me-1">{elementEdit}</button></Link>
+                            <button className="btn-outline-danger rounded border-0" onClick="{() => handleDeleteOrder(row._id)}">{elementTrash}</button></td>
                         </tr>
                     ))}
                 </tbody>
