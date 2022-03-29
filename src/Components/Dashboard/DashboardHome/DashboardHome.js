@@ -11,7 +11,6 @@ const DashboardHome = () => {
             <div className="dashboardImage">
                 <img src="https://cdn.dribbble.com/users/2424774/screenshots/6533055/05_organize.png"></img>
             </div>
-                 <Orders></Orders>
         </div>
     );
 };

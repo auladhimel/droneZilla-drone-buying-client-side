@@ -5,8 +5,10 @@ import "./UpdateProducts.css";
 
 const UpdateProducts = () => {
     const { productId } = useParams();
+    
     const [singleProduct, setSingleProduct]= useState({});
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
   const onSubmit = (data) => {
     console.log(data);
     fetch(`https://young-badlands-33283.herokuapp.com/update/${productId}`,{

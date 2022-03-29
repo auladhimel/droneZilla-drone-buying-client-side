@@ -3,7 +3,7 @@ import ExploreSingle from '../ExploreSingle/ExploreSingle';
 import Products from '../Products/Products';
 // explore page 
 const Explore = () => {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([]); 
     useEffect(() => {
         fetch('https://young-badlands-33283.herokuapp.com/products')
             .then(res => res.json())

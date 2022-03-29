@@ -46,11 +46,14 @@ function App() {
               <Route path="/login">
                 <Login />
               </Route>
-              <PrivateRoute path="/purchase">
+              {/* <PrivateRoute path="/purchase">
                 <Purchase />
-              </PrivateRoute>
+              </PrivateRoute> */}
               <PrivateRoute path="/update/:productId">
                 <UpdateProducts />
+              </PrivateRoute>
+              <PrivateRoute path="/purchase/:productId">
+                <Purchase />
               </PrivateRoute>
               <Route path="/">
                 <Home />

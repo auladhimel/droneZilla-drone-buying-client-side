@@ -28,7 +28,7 @@ const Footer = () => {
                         <div className="address">
                             <address>House no 35, Palmall street, London, England</address>
                             <p><span className="contacts">Email: </span> <br /> info@dronezilla.com</p>
-                            <p><span className="contacts">Website:</span> <br /> www.dronezilla.com</p>
+                            <p><span className="contacts">Website:</span> <br /> drone-zilla.web.app</p>
                         </div>
                     </Col>
                     <Col className="subscribe">
@@ -39,7 +39,7 @@ const Footer = () => {
                 </Row>
                 <hr />
                 {/* copyright footer  */}
-                <small>Copyright © 2021 <span className="depression-solution">Aulad Himel.</span>  All Rights Reserved.</small>
+                <small>Copyright © 2022 <span className="depression-solution">Aulad Himel.</span>  All Rights Reserved.</small>
             </Container>
         </div>
     );

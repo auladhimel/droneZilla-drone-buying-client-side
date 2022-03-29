@@ -34,8 +34,8 @@ const Orders = () => {
     return (
         <div>
             {/* orders table  */}
-            <h2 style={{ paddingTop: "10px", marginBottom: "20px", fontSize: "25px", fontWeight: "bold" }}>My Orders : {orders.length}</h2>
-            <Table striped bordered hover size="sm" style={{ marginLeft: "80px"}}>
+            <h2 style={{ paddingTop: "60px", marginBottom: "50px", fontSize: "25px", fontWeight: "bold" }}>My Orders : {orders.length}</h2>
+            <Table striped bordered hover size="sm" style={{ marginLeft: "80px", marginBottom:"50px"}}>
                 <thead>
                     <tr>
                         <th>Customer Name</th>
