@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Product.css';
 // product page 
 const Product = (props) => {
-    const { productName, description, price, image } = props.product;
+    const { productName, description, price, image, _id } = props.product;
 
     return (
         <div className="col-md-3 service justify-content-center">
@@ -16,7 +16,7 @@ const Product = (props) => {
                         <span id="description">
                             <small>{description}</small></span><br />
                         <p className="mt-3"><b>Price - ${price} / Each</b></p><br />
-                        <Link to="/purchase" className="detailsLink">
+                        <Link to={`/purchase/${_id}`} className="detailsLink">
                             <button className="violet-button">Buy Now</button>
                         </Link>
                     </Card.Text>

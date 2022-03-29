@@ -58,7 +58,7 @@ const Purchase = () => {
     // }
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/singlePurchase/${productId}`)
+        fetch(`https://young-badlands-33283.herokuapp.com/singlePurchase/${productId}`)
         .then(res=>res.json())
         // .then(data=>setSingleBooking(data))
         .then(data=>setOrderInfo(data))
@@ -87,7 +87,7 @@ const Purchase = () => {
           
         }
         console.log(order);
-        fetch('http://localhost:5000/orders',{
+        fetch('https://young-badlands-33283.herokuapp.com/orders',{
             method: 'POST',
             headers:{ 
                 'content-type': 'application/json'
@@ -99,7 +99,7 @@ const Purchase = () => {
             console.log(data);
             if(data.insertedId){  
                 alert('Order Placed Successfully');
-                
+
             }
         })
     }

@@ -12,15 +12,11 @@ const ExploreSingle = (props) => {
             <Card style={{ width: '18rem' }} className="fullcard" >
                 <Card.Img className="card-img" variant="top" src={image} />
                 <Card.Body className="bg-light text-black rounded-bottom text-start cardbody text-center">
-                    <Card.Title style={{ fontWeight: 'bold' }}>{_id}{productName}</Card.Title>
+                    <Card.Title style={{ fontWeight: 'bold' }}>{productName}</Card.Title>
                     <Card.Text>
                         <span id="description">
                             <small>{description}</small></span><br />
                         <p style={{ marginTop: "5px" }}><b>${price} / Each</b></p><br />
-                        <NavLink to="/purchase" className="detailsLink">
-                            <button className="violet-button">Buy Now</button>
-                           
-                        </NavLink>
                         <Link to={`/purchase/${_id}`}><button className="violet-button">Buy Now</button></Link> 
                     </Card.Text>
                 </Card.Body>

@@ -39,11 +39,9 @@ const Orders = () => {
                 <thead>
                     <tr>
                         <th>Customer Name</th>
-                        <th>Drone Model</th>
+                        <th>Product Name</th>
                         <th>Email</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Quantity</th>
+                        <th>Price</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -54,11 +52,9 @@ const Orders = () => {
                             key={row._id}
                         >
                             <td>{row.customerName}</td>
-                            <td>{row.product}</td>
+                            <td>{row.productName}</td>
                             <td>{row.email}</td>
-                            <td>{row.phone}</td>
-                            <td>{row.address}</td>
-                            <td>{row.quantity}</td>
+                            <td>{row.price}</td>
                             <td>{row.status}</td>
                             <td><button className="btn-danger border-0 rounded" onClick={() => handleDeleteOrder(row._id)}>Cancel</button></td>
                         </tr>
