@@ -21,15 +21,14 @@ fetch(`http://localhost:5000/ordersId/${orderId}`)
 
     return (
         <Container>
-            <Col style={{ marginLeft: "20px"}}>
-                <h2 style={{ paddingTop: "20px", fontSize: "30px", fontWeight: "bold", }}>Payment For: {orderPay.productName}</h2>
-                <p>Pay: ${orderPay.price}</p>
-                <Elements stripe={stripePromise}>
-                <CheckoutForm />
-                </Elements>
-            </Col>
-            <Col>
-                <img className="mt-5" src={paymentImage} alt="" />
+            <Col style={{marginLeft:'350px', paddingBottom:'80px', marginRight:'180px', border:'2px', padding:"20px" , paddingTop:"50px"}} className="border">
+                <h4 style={{ paddingTop: "40px", fontSize: "30px", fontWeight: "bold", }}>Payment For: {orderPay.productName}</h4>              
+                <p style={{ paddingTop: "15px", paddingBottom: "20px"}}>Great, That's ${orderPay.price}!</p>
+                {orderPay?.price && <Elements stripe={stripePromise}>
+                <CheckoutForm 
+                orderPay={orderPay}
+                />
+                </Elements>}
             </Col>
         </Container>
     );

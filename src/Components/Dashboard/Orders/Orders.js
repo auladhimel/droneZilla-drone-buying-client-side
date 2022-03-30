@@ -2,8 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDeleteLeft, faDollarSign} from '@fortawesome/free-solid-svg-icons';
 // orders page 
 const Orders = () => {
+
+    const elementPayment = <FontAwesomeIcon icon={faDollarSign} />
+    const elementCancel = <FontAwesomeIcon icon={faDeleteLeft} />
+
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
@@ -58,10 +64,12 @@ const Orders = () => {
                             <td>{row.price}</td>
                             <td>{row.status}</td>
                             <td>
+                                {row.payment? 
+                                 <span style={{color:'grey', padding:'10px 15px'}}>Paid</span> : 
                                 <Link to={`/dashboard/payment/${row._id}`}>
-                                <button style={{marginRight:"6px"}} className="btn-success border-0 rounded">Pay</button>
-                                </Link>
-                                <button className="btn-danger border-0 rounded" onClick={() => handleDeleteOrder(row._id)}>Cancel</button>
+                                <button style={{marginRight:"6px"}} className="btn-outline-success border-0 rounded">{elementPayment} Pay</button>
+                                </Link>}
+                                <button className="btn-outline-danger border-0 rounded" onClick={() => handleDeleteOrder(row._id)}> {elementCancel} Cancel</button>
                                 </td>
                         </tr>
                     ))}

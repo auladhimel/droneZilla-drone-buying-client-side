@@ -44,7 +44,6 @@ const Dashboard = (props) => {
                 {!admin && <div>
                     <NavLink to={`${url}/orders`}>My Orders</NavLink>
                     <NavLink to={`${url}/addReviews`}>Add Review</NavLink>
-                    <NavLink to={`${url}/pay`}>Payment</NavLink>
                 </div>}
                 <Button variant="warning" style={{ marginTop: "5px", backgroundColor: "#061A3A", color: "white" }} onClick={logout}>Logout</Button>
             </div>
