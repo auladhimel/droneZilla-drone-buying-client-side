@@ -61,7 +61,7 @@ const Dashboard = (props) => {
                     <Route path={`${path}/orders`}>
                         <Orders></Orders>
                     </Route>
-                    <Route path={`${path}/pay`}>
+                    <Route path={`${path}/payment/:orderId`}>
                         <Pay></Pay>
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>

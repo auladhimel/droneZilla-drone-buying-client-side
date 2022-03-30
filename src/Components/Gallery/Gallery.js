@@ -5,7 +5,7 @@ import './Gallery.css';
 const Gallery = () => {
     const [gallery, setGallery] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/gallery')
+        fetch('https://young-badlands-33283.herokuapp.com/gallery')
             .then(res => res.json())
             .then(data => setGallery(data))
     }, []);

@@ -17,7 +17,7 @@ const Purchase = () => {
     // const [orderSuccess, setOrderSuccess]= useState(false);
     // const handlePurchasingSubmit = e => {
     //     console.log(orderInfo);
-    //     fetch(`http://localhost:5000/orders/${productId}`,{
+    //     fetch(`https://young-badlands-33283.herokuapp.com/orders/${productId}`,{
     //         method: "POST",
     //         headers: { 
     //             'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ const Purchase = () => {
     //     //collect data
     //     const order = { ...orderInfo }
     //     //send data to server
-    //     fetch('http://localhost:5000/orders', {
+    //     fetch('https://young-badlands-33283.herokuapp.com/orders', {
     //         method: 'POST',
     //         headers: {
     //             'content-type': 'application/json'
@@ -58,7 +58,7 @@ const Purchase = () => {
     // }
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/singlePurchase/${productId}`)
+        fetch(`https://young-badlands-33283.herokuapp.com/singlePurchase/${productId}`)
         .then(res=>res.json())
         // .then(data=>setSingleBooking(data))
         .then(data=>setOrderInfo(data))
@@ -88,7 +88,7 @@ const Purchase = () => {
         }
         delete order._id;
         console.log(order);
-        fetch('http://localhost:5000/orders',{
+        fetch('https://young-badlands-33283.herokuapp.com/orders',{
             method: 'POST',
             headers:{ 
                 'content-type': 'application/json'

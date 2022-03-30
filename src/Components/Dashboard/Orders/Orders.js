@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 // orders page 
 const Orders = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/orders?email=${user.email}`
+        const url = `https://young-badlands-33283.herokuapp.com/orders?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -15,7 +16,7 @@ const Orders = () => {
     const handleDeleteOrder = id => {
         const proceed = window.confirm('Are you sure! You want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://young-badlands-33283.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -56,7 +57,12 @@ const Orders = () => {
                             <td>{row.email}</td>
                             <td>{row.price}</td>
                             <td>{row.status}</td>
-                            <td><button className="btn-danger border-0 rounded" onClick={() => handleDeleteOrder(row._id)}>Cancel</button></td>
+                            <td>
+                                <Link to={`/dashboard/payment/${row._id}`}>
+                                <button style={{marginRight:"6px"}} className="btn-success border-0 rounded">Pay</button>
+                                </Link>
+                                <button className="btn-danger border-0 rounded" onClick={() => handleDeleteOrder(row._id)}>Cancel</button>
+                                </td>
                         </tr>
                     ))}
                 </tbody>
