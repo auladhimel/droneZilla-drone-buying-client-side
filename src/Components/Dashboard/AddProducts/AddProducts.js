@@ -6,10 +6,6 @@ import imageAddProducts from '../../../images/image-8.jpeg';
 
 const AddProducts = () => {
 
-
-
-
-
     const productNameRef = useRef();
     const descriptionRef = useRef();
     const imageRef = useRef();
@@ -30,7 +26,7 @@ const AddProducts = () => {
             price
         }
         //send data to server
-        fetch('https://young-badlands-33283.herokuapp.com/products', {
+        fetch('http://localhost:5000/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -48,6 +44,7 @@ const AddProducts = () => {
         // e.preventDefault();
         // alert('order placed');
     }
+
 
 
 

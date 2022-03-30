@@ -11,7 +11,7 @@ const UpdateProducts = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    fetch(`https://young-badlands-33283.herokuapp.com/update/${productId}`,{
+    fetch(`http://localhost:5000/update/${productId}`,{
         method: "PUT",
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(data),
@@ -25,7 +25,7 @@ const UpdateProducts = () => {
 
   }
     useEffect(()=>{
-        fetch(`https://young-badlands-33283.herokuapp.com/singleProduct/${productId}`)
+        fetch(`http://localhost:5000/singleProduct/${productId}`)
         .then((res)=>res.json())
         .then((data)=>setSingleProduct(data));
 

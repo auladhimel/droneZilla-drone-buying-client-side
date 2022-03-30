@@ -40,7 +40,7 @@ const Purchase = () => {
     //     //collect data
     //     const order = { ...orderInfo }
     //     //send data to server
-    //     fetch('https://young-badlands-33283.herokuapp.com/orders', {
+    //     fetch('http://localhost:5000/orders', {
     //         method: 'POST',
     //         headers: {
     //             'content-type': 'application/json'
@@ -58,7 +58,7 @@ const Purchase = () => {
     // }
 
     useEffect(()=>{
-        fetch(`https://young-badlands-33283.herokuapp.com/singlePurchase/${productId}`)
+        fetch(`http://localhost:5000/singlePurchase/${productId}`)
         .then(res=>res.json())
         // .then(data=>setSingleBooking(data))
         .then(data=>setOrderInfo(data))
@@ -86,8 +86,9 @@ const Purchase = () => {
             status:'Pending',
           
         }
+        delete order._id;
         console.log(order);
-        fetch('https://young-badlands-33283.herokuapp.com/orders',{
+        fetch('http://localhost:5000/orders',{
             method: 'POST',
             headers:{ 
                 'content-type': 'application/json'

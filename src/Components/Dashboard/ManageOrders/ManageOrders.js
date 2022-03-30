@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash , faEdit} from '@fortawesome/free-solid-svg-icons';
+import { useForm } from 'react-hook-form';
 
 // ManageOrders page 
 const ManageOrders = () => {
@@ -13,6 +14,7 @@ const ManageOrders = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
     const [status,setStatus]=useState("");
+    const { register, handleSubmit } = useForm();
 
     const handleStatus=(e)=>{
     setStatus(e.target.value);
@@ -21,7 +23,7 @@ const ManageOrders = () => {
 
 
     useEffect(() => {
-        const url = `https://young-badlands-33283.herokuapp.com/allOrders?email=${user.email}`
+        const url = `http://localhost:5000/allOrders?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -32,7 +34,7 @@ const ManageOrders = () => {
         const proceed = window.confirm('Are you sure! You want to update status?');
 
         if(proceed){
-            fetch(`https://young-badlands-33283.herokuapp.com/updateStatus/${id}`,{
+            fetch(`http://localhost:5000/updateStatus/${id}`,{
                 method:"PUT",
                 headers:{"content-type": "application/json"},
                 body: JSON.stringify({status}),
@@ -44,7 +46,7 @@ const ManageOrders = () => {
     const handleDeleteOrder = id => {
         const proceed = window.confirm('Are you sure! You want to delete?');
         if (proceed) {
-            const url = `https://young-badlands-33283.herokuapp.com/orders/${id}`;
+            const url = `http://localhost:5000/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -70,9 +72,7 @@ const ManageOrders = () => {
                         <th>Customer Name</th>
                         <th>Drone Model</th>
                         <th>Email</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Quantity</th>                        
+                        <th>Price</th>                        
                         <th>Status</th>                        
                         <th>Action</th>
                     </tr>
@@ -83,13 +83,10 @@ const ManageOrders = () => {
                             key={row._id}
                         >
                             <td>{row.customerName}</td>
-                            <td>{row.product}</td>
+                            <td>{row.productName}</td>
                             <td>{row.email}</td>
-                            <td>{row.phone}</td>
-                            <td>{row.address}</td>
-                            <td>{row.quantity}</td>
-                            <td style={{width:'10%'}}><input type="text" onChange={handleStatus} defaultValue={row.status} style={{width:'90%'}}></input>
-                            </td>                          
+                            <td>{row.price}</td>
+                            <td style={{width:'10%'}}><input type="text" onChange={handleStatus} defaultValue={row.status} style={{width:'90%'}}></input></td>                          
                             <td>
                                 <button onClick={()=>handleUpdate(row._id)} className="btn-outline-success rounded me-1 border-0">{elementEdit}</button> 
                             <button className="btn-outline-danger rounded border-0" onClick={() => handleDeleteOrder(row._id)}>{elementTrash}</button></td>
