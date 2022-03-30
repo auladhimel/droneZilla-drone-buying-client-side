@@ -19,7 +19,7 @@ const AddProducts = () => {
         const description = descriptionRef.current.value;
         const image = imageRef.current.value;
         const price = priceRef.current.value;
-        const products = {
+        const products = { 
             productName,
             description,
             image,

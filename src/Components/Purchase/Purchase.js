@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './Purchase.css';
 
 // purchase component 
 const Purchase = () => { 
-
+    const history = useHistory();
     const { productId }= useParams();
     const { user } = useAuth();
     const initialInfo = { customerName: user.displayName, email: user.email, phone: '', status:'Pending' }
     const [orderInfo, setOrderInfo] = useState(initialInfo);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-
-    // const [orderSuccess, setOrderSuccess]= useState(false);
+    const [orderSuccess, setOrderSuccess]= useState(false);
     // const handlePurchasingSubmit = e => {
     //     console.log(orderInfo);
     //     fetch(`https://young-badlands-33283.herokuapp.com/orders/${productId}`,{
@@ -60,32 +61,31 @@ const Purchase = () => {
     useEffect(()=>{
         fetch(`https://young-badlands-33283.herokuapp.com/singlePurchase/${productId}`)
         .then(res=>res.json())
-        // .then(data=>setSingleBooking(data))
         .then(data=>setOrderInfo(data))
         
     },[])
 
 
-    const handleOnBlur = e => {
-        const field = e.target.name;
-        const value = e.target.value;
-        const newInfo = { ...orderInfo };
-        newInfo[field] = value;
-        setOrderInfo(newInfo);
-
-    }
-
+    // const handleOnBlur = e => {
+    //     const field = e.target.name;
+    //     const value = e.target.value;
+    //     const newInfo = { ...orderInfo };
+    //     newInfo[field] = value;
+    //     setOrderInfo(newInfo);
+    // }
 
     const onSubmit=e=>{
+        const phone= document.getElementById('phone').value;
+        const address= document.getElementById('address').value;
         const order={
             ...orderInfo,
             customerName: user.displayName, 
-            email: user.email, 
-            phone: '',
-            address:'', 
-            status:'Pending',
-          
+            email: user.email,
+            phone: phone,
+            address: address,            
+            status:'Pending',        
         }
+        
         delete order._id;
         console.log(order);
         fetch('https://young-badlands-33283.herokuapp.com/orders',{
@@ -98,7 +98,9 @@ const Purchase = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
-            if(data.insertedId){  
+            if(data.insertedId){ 
+                history.push('/dashboard/orders', { some: 'state' })
+                setOrderSuccess(true); 
                 alert('Order Placed Successfully');
 
             }
@@ -117,10 +119,10 @@ const Purchase = () => {
   <input style={{ marginBottom:"20px"}} defaultValue={user.email}  {...register("email")}/> <br />
 
   <label style={{ paddingRight:"75px"}}>Phone : </label>
-  <input style={{ marginBottom:"20px"}} placeholder="Phone"  {...register("phone")}/> <br />
+  <input style={{ marginBottom:"20px"}} placeholder="Phone" id="phone" {...register("phone")}/> <br />
 
   <label style={{ paddingRight:"50px"}}>Address : </label>
-  <input style={{ marginBottom:"20px"}} placeholder="Address" {...register("address")}/> <br />
+  <input style={{ marginBottom:"20px"}} placeholder="Address" id="address" {...register("address")}/> <br />
 
   <label style={{ paddingRight:"10px"}}>Product Name : </label>
   <input style={{ marginBottom:"20px"}} name="firstName" defaultValue={orderInfo.productName} {...register("productName")} /> <br />
@@ -135,7 +137,7 @@ const Purchase = () => {
   <input style={{ marginLeft:"90px"}} variant="warning" className="submit" type="submit"/>
 </form>
 
-{/* {orderSuccess && <alert>Order Placed Successfully!</alert>} */}
+{/* { orderSuccess && <p style={{color:'green'}}>Order Placed Successfully!</p>} */}
     </div>
         // <div className="purchase">
         //     <h1 style={{ paddingTop: "20px", marginBottom: "30px", fontSize: "28px", fontWeight: "bold" }}>Purchase</h1>

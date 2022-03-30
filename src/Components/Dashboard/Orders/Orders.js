@@ -48,6 +48,8 @@ const Orders = () => {
                         <th>Customer Name</th>
                         <th>Product Name</th>
                         <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
                         <th>Price</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -61,6 +63,8 @@ const Orders = () => {
                             <td>{row.customerName}</td>
                             <td>{row.productName}</td>
                             <td>{row.email}</td>
+                            <td>{row.phone}</td>
+                            <td>{row.address}</td>
                             <td>{row.price}</td>
                             <td>{row.status}</td>
                             <td>

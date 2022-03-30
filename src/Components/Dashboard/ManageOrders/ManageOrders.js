@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Form, Table } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash , faEdit} from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
 
+
 // ManageOrders page 
 const ManageOrders = () => {
-
+    
     const elementTrash = <FontAwesomeIcon icon={faTrash} />
     const elementEdit = <FontAwesomeIcon icon={faEdit} />
+
 
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
@@ -21,6 +23,7 @@ const ManageOrders = () => {
     };
     console.log(status);
 
+    const onSubmit = data => console.log(data);
 
     useEffect(() => {
         const url = `https://young-badlands-33283.herokuapp.com/allOrders?email=${user.email}`
@@ -72,6 +75,8 @@ const ManageOrders = () => {
                         <th>Customer Name</th>
                         <th>Drone Model</th>
                         <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
                         <th>Price</th>                        
                         <th>Status</th>                        
                         <th>Action</th>
@@ -85,8 +90,12 @@ const ManageOrders = () => {
                             <td>{row.customerName}</td>
                             <td>{row.productName}</td>
                             <td>{row.email}</td>
+                            <td>{row.phone}</td>
+                            <td>{row.address}</td>
                             <td>{row.price}</td>
-                            <td style={{width:'10%'}}><input type="text" onChange={handleStatus} defaultValue={row.status} style={{width:'90%'}}></input></td>                          
+                            <td style={{width:'10%'}}>
+                                <input type="text" onChange={handleStatus} defaultValue={row.status} style={{width:'90%'}}></input>
+                                </td>                          
                             <td>
                                 <button onClick={()=>handleUpdate(row._id)} className="btn-outline-success rounded me-1 border-0">{elementEdit}</button> 
                             <button className="btn-outline-danger rounded border-0" onClick={() => handleDeleteOrder(row._id)}>{elementTrash}</button></td>
